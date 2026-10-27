@@ -1,0 +1,43 @@
+# --- Rust ---
+target/
+**/*.rs.bk
+
+# --- Python ---
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# --- Runtime data (never commit) ---
+memory/
+models/
+logs/
+*.log
+*.jsonl
+
+# --- Secrets ---
+.env
+.env.*
+!.env.example
+config/jarvis.toml
+secrets/
+
+# --- Build artifacts ---
+dist/
+build/
+*.apk
+*.aab
+*.msi
+*.exe
+!scripts/**/*.exe
+
+# --- IDE / OS ---
+.idea/
+.vscode/
+*.swp
+Thumbs.db
+.DS_Store

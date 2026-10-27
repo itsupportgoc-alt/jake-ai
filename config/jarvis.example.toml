@@ -1,0 +1,49 @@
+# JARVIS configuration — copy to `config/jarvis.toml` and edit.
+# Every value can be overridden by an environment variable:
+#   JARVIS_<SECTION>_<KEY>   e.g. JARVIS_LLM_API_KEY, JARVIS_LLM_PROVIDER
+
+[llm]
+# Provider id: "openai_compat" | "test"
+#   openai_compat -> works with OpenAI, OpenRouter, LM Studio, Ollama (/v1), vLLM...
+provider   = "openai_compat"
+base_url   = "https://api.openai.com/v1"
+model      = "gpt-4o-mini"
+# API key: NEVER put it here. Set JARVIS_LLM_API_KEY, or use the OS keychain.
+api_key_env = "JARVIS_LLM_API_KEY"
+timeout_ms = 60000
+max_tokens = 2048
+temperature = 0.4
+
+[agent]
+max_steps        = 8        # hard cap on tool iterations per user turn
+step_timeout_ms  = 30000    # per tool execution
+total_timeout_ms = 300000   # per user turn
+max_retries      = 2        # provider/tool retries
+tool_call_budget = 16       # tool executions per turn across all steps
+autonomy         = 3        # 1..5, see docs/permissions.md
+
+[persona]
+name      = "JARVIS"
+style     = "calm, professional, concise, occasionally witty"
+language  = "en"             # en | fil | tl (Taglish is understood in any value)
+wake_word = "Jarvis"
+
+[privacy]
+privacy_mode       = false   # true => no cloud calls, no remote devices, local only
+allow_screenshots  = false
+allow_cloud_llm    = true
+
+[logging]
+level  = "info"              # trace|debug|info|warn|error
+dir    = "logs"
+rotate = "daily"             # daily log rotation with size guard
+max_file_mb = 20
+
+[python]
+# Empty => auto-discover the project virtualenv, then `python`.
+executable = ""
+# Seconds before the brain process is considered unhealthy and restarted.
+restart_limit = 3
+
+[devices]
+gateway_enabled = false      # Phase 6: never on by default
