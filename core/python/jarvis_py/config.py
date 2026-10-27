@@ -1,8 +1,8 @@
-"""Typed brain configuration, loaded from the `JARVIS_BRAIN_CONFIG` environment variable.
+"""Typed brain configuration, loaded from the `Jake_BRAIN_CONFIG` environment variable.
 
 The Rust runtime owns configuration; the brain receives an already-resolved slice of
 it on every launch. Environment variables are the fallback for standalone use
-(`python -m jarvis_py.main` during development).
+(`python -m Jake_py.main` during development).
 """
 
 from __future__ import annotations
@@ -36,10 +36,10 @@ class AgentConfig:
 
 @dataclass
 class PersonaConfig:
-    name: str = "JARVIS"
+    name: str = "Jake"
     style: str = "calm, professional, concise, occasionally witty, never annoying"
     language: str = "en"
-    wake_word: str = "Jarvis"
+    wake_word: str = "Jake"
 
 
 @dataclass
@@ -63,7 +63,7 @@ class BrainConfig:
 
     @classmethod
     def load(cls) -> "BrainConfig":
-        raw = os.environ.get("JARVIS_BRAIN_CONFIG", "").strip()
+        raw = os.environ.get("Jake_BRAIN_CONFIG", "").strip()
         data: Dict[str, Any] = {}
         if raw:
             try:
@@ -83,12 +83,12 @@ class BrainConfig:
 
         cfg = cls(
             llm=LlmConfig(
-                provider=str(llm.get("provider", "openai_compat")),
-                base_url=str(llm.get("base_url", "https://api.openai.com/v1")).rstrip("/"),
-                model=str(llm.get("model", "gpt-4o-mini")),
+                provider=str(llm.get("provider", "local_jake")),
+                base_url=str(llm.get("base_url", "")).rstrip("/") if str(llm.get("provider", "local_jake")) != "local_jake" else "",
+                model=str(llm.get("model", "Jake-small")),
                 api_key=str(llm.get("api_key", "") or ""),
-                timeout_ms=int(llm.get("timeout_ms", 60_000)),
-                max_tokens=int(llm.get("max_tokens", 2048)),
+                timeout_ms=int(llm.get("timeout_ms", 500)),
+                max_tokens=int(llm.get("max_tokens", 64)),
                 temperature=float(llm.get("temperature", 0.4)),
             ),
             agent=AgentConfig(
@@ -96,10 +96,10 @@ class BrainConfig:
                 max_retries=int(agent.get("max_retries", 2)),
             ),
             persona=PersonaConfig(
-                name=str(persona.get("name", "JARVIS")),
+                name=str(persona.get("name", "Jake")),
                 style=str(persona.get("style", "calm, professional, concise")),
                 language=str(persona.get("language", "en")),
-                wake_word=str(persona.get("wake_word", "Jarvis")),
+                wake_word=str(persona.get("wake_word", "Jake")),
             ),
             privacy=PrivacyConfig(
                 privacy_mode=bool(privacy.get("privacy_mode", False)),
@@ -110,7 +110,7 @@ class BrainConfig:
         )
         # Secrets never come from argv, only from the environment/config slice.
         if not cfg.llm.api_key:
-            cfg.llm.api_key = os.environ.get("JARVIS_LLM_API_KEY", "")
+            cfg.llm.api_key = os.environ.get("Jake_LLM_API_KEY", "")
         return cfg
 
     def describe(self, redact_fn=None) -> Dict[str, Any]:

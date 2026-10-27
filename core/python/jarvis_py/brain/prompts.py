@@ -1,4 +1,4 @@
-"""System prompts and persona construction for the JARVIS brain.
+"""System prompts and persona construction for the Jake brain.
 
 Two hard rules live here, because they are the model's only "ethics":
 

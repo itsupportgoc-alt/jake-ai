@@ -1,7 +1,7 @@
 """Wake-word matching.
 
 Text-level: given a transcript (from STT), decide whether it *starts* with a
-configured wake word ("Jarvis", "Hey Jarvis", "Computer" …) and strip it so the
+configured wake word ("Jake", "Hey Jake", "Computer" …) and strip it so the
 rest becomes the command. Matching is normalised (case, punctuation) and
 supports multi-word phrases.
 
@@ -54,18 +54,18 @@ class WakeWordEngine:
     def __init__(self, wake_words: Optional[Sequence[str]] = None):
         words = [w for w in (wake_words or []) if w and str(w).strip()]
         # normalise for matching, but remember the original spelling so results
-        # can say "Jarvis", not "jarvis".
+        # can say "Jake", not "Jake".
         self._original: dict[str, str] = {}
         for w in words:
             norm = normalise(w)
             if norm and norm not in self._original:
                 self._original[norm] = str(w).strip()
-        # longest phrases first so "hey jarvis" wins over "jarvis".
+        # longest phrases first so "hey Jake" wins over "Jake".
         self.wake_words: List[str] = sorted(self._original.keys(), key=len, reverse=True)
 
     @classmethod
     def from_config(cls, value: str) -> "WakeWordEngine":
-        """Accepts `"Jarvis, Hey Jarvis"` (comma-separated) or a single word."""
+        """Accepts `"Jake, Hey Jake"` (comma-separated) or a single word."""
         parts = [p.strip() for p in (value or "").split(",")]
         return cls([p for p in parts if p])
 

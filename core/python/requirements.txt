@@ -1,4 +1,4 @@
-# JARVIS Python brain — Phase 1 dependencies (pinned).
+# Jake Python brain — Phase 1 dependencies (pinned).
 #
 # Phase 1 runs on the standard library: the brain needs NO third-party package to
 # chat, call tools or log. The packages below are development/test tooling and are

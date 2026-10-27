@@ -1,6 +1,6 @@
 """Secret redaction applied before anything leaves this process for a cloud provider.
 
-Mirrors `jarvis_core::logging::redact` in Rust: a small scanner, no regex engine,
+Mirrors `Jake_core::logging::redact` in Rust: a small scanner, no regex engine,
 no dependencies. Two layers:
 
 1. **Key-shaped values** (``sk-...``, ``ghp_...``, JWTs, AWS keys …) are masked

@@ -62,7 +62,7 @@ class VoicePipeline:
     # --------------------------------------------------------------------- API
     def process_wav(self, path: str) -> Dict[str, Any]:
         """Offline: wake check + transcribe a WAV file. Fully deterministic path
-        used by tests, `jarvis voice --wav`, and as the STT fallback everywhere."""
+        used by tests, `Jake voice --wav`, and as the STT fallback everywhere."""
         if not os.path.isfile(path):
             return {"ok": False, "error": f"no such audio file: {path}", "stage": "input"}
         try:
@@ -179,7 +179,7 @@ class VoicePipeline:
             trimmed = trim_silence(collected, EnergyVad())
             if not trimmed:
                 return {"ok": False, "error": "speech was only noise", "stage": "vad"}
-            fd, temp_path = tempfile.mkstemp(suffix=".wav", prefix="jarvis-utt-")
+            fd, temp_path = tempfile.mkstemp(suffix=".wav", prefix="Jake-utt-")
             os.close(fd)
             write_wav(temp_path, trimmed, source.sample_rate)
         except AudioError as exc:
@@ -235,14 +235,14 @@ class VoicePipeline:
 
 def build_demo_wav(text: str, path: Optional[str] = None, rate: int = -3) -> Dict[str, Any]:
     """Render `text` to a WAV with the platform TTS — used by tests and by
-    `jarvis voice --demo` so the voice loop can be exercised without a microphone.
+    `Jake voice --demo` so the voice loop can be exercised without a microphone.
 
     Rendered slightly *slower* (rate=-3) by default: speech recognizers transcribe
     deliberately-paced audio far more accurately (measured here: 0.53 → 0.74
     confidence, and the wake word stops being mangled)."""
     from .tts import create_tts
 
-    target = path or os.path.join(tempfile.gettempdir(), "jarvis-voice-demo.wav")
+    target = path or os.path.join(tempfile.gettempdir(), "Jake-voice-demo.wav")
     result = create_tts().speak_to_wav(text, target, rate=rate)
     if not result.get("ok"):
         return {"ok": False, "error": result.get("detail", "TTS render failed")}

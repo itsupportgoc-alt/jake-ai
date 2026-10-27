@@ -1,16 +1,16 @@
-# JARVIS
+# Jake
 
 An autonomous personal AI assistant for Windows (extensible to Linux/macOS) with a
 native Android companion. Not a chatbot wrapper, not a WebView — a real agent:
 the AI brain *proposes*, the permission-controlled Rust tool system *disposes*.
 
 ```
-you → chat/voice → JARVIS BRAIN (Python: providers, planning, memory)
-                       │ JSON-RPC 2.0 over stdio
-                       ▼
-              jarvis core (Rust: event bus → agent loop → permission gate → tools)
-                       │
-              apps · files · input · screen · Android gateway
+you → chat/voice → Jake BRAIN (Python: providers, planning, memory)
+                        │ JSON-RPC 2.0 over stdio
+                        ▼
+               Jake core (Rust: event bus → agent loop → permission gate → tools)
+                        │
+               apps · files · input · screen · Android gateway
 ```
 
 > Status legend used throughout the docs: **IMPLEMENTED**, **PARTIALLY IMPLEMENTED**,
@@ -27,10 +27,10 @@ you → chat/voice → JARVIS BRAIN (Python: providers, planning, memory)
 | Python brain over supervised JSON-RPC stdio (restart, honest failure) | IMPLEMENTED |
 | `LLMProvider` abstraction + OpenAI-compatible adapter + offline test provider | IMPLEMENTED |
 | Secret redaction (logs + cloud egress) and structured rotating logs | IMPLEMENTED |
-| `jarvis chat` / `doctor` / `tools` / `config` / `speak` / `listen` CLI | IMPLEMENTED |
+| `jake` chat / doctor / tools / config / speak / listen CLI | IMPLEMENTED |
 | Conversation memory (short-term in-session) | IMPLEMENTED |
-| Voice **output** (TTS: `jarvis speak`, WAV-render verification) | IMPLEMENTED |
-| Voice **input** (STT: `jarvis listen`) | PARTIALLY IMPLEMENTED — engine runs; this machine reports “no audio device” honestly |
+| Voice **output** (TTS: `jake speak`, WAV-render verification) | IMPLEMENTED |
+| Voice **input** (STT: `jake listen`) | PARTIALLY IMPLEMENTED — engine runs; this machine reports “no audio device” honestly |
 | Screen capture (`screenshot`, PNG-verified, blocked in Privacy Mode) | PARTIALLY IMPLEMENTED — verified to fail honestly in this headless session; needs an interactive desktop to actually capture |
 | Wake word · VAD · mic loop · voice conversation | NOT IMPLEMENTED (needs an audio capture stack) |
 | Keyboard/mouse injection · OCR · UI-tree automation | NOT IMPLEMENTED (Phase 3 continuation) |
@@ -55,24 +55,15 @@ cargo build --release
 
 # 2) offline check — no API key needed
 python -m venv .venv
-.venv/Scripts/python.exe -m pip install -r core/python/requirements.txt
-JARVIS_LLM_PROVIDER=test ./target/release/jarvis doctor
-
-# 3) talk to it (offline test provider drives real tools)
-JARVIS_LLM_PROVIDER=test ./target/release/jarvis chat
-
-# 4) full conversation: set your key, then
-export JARVIS_LLM_API_KEY=sk-...
-./target/release/jarvis chat
 ```
 
-Useful commands:
+## Useful commands
 
 ```text
-jarvis chat [--once "..."] [--yes]   interactive assistant (Ctrl+C = emergency stop)
-jarvis doctor                        configuration / brain / provider health checks
-jarvis tools [--json]                registered tools with permission levels
-jarvis config                        effective configuration (secrets redacted)
+jake chat [--once "..."] [--yes]   interactive assistant (Ctrl+C = emergency stop)
+jake doctor                        configuration / brain / provider health checks
+jake tools [--json]                registered tools with permission levels
+jake config                        effective configuration (secrets redacted)
 ```
 
 In-chat: `/help`, `/tools`, `/autonomy 1..5`, `/reset`, `/stop`, `/quit`.
@@ -80,16 +71,16 @@ In-chat: `/help`, `/tools`, `/autonomy 1..5`, `/reset`, `/stop`, `/quit`.
 Voice:
 
 ```bash
-jarvis speak "System status nominal"              # speak through the Windows TTS
-jarvis speak --wav out.wav "rendered check"       # offline-verifiable render
-jarvis listen --seconds 8                         # one dictation pass (needs a mic)
+jake speak "System status nominal"              # speak through the Windows TTS
+jake speak --wav out.wav "rendered check"       # offline-verifiable render
+jake listen --seconds 8                         # one dictation pass (needs a mic)
 ```
 
 ## Configuration
 
-Copy `config/jarvis.example.toml` to `config/jarvis.toml` and edit. Every value has
-an environment override: `JARVIS_<SECTION>_<KEY>` (e.g. `JARVIS_AGENT_MAX_STEPS=4`).
-API keys are **never** stored in files — use `JARVIS_LLM_API_KEY`. See
+Copy `config/jake.example.toml` to `config/jake.toml` and edit. Every value has
+an environment override: `Jake_<SECTION>_<KEY>` (e.g. `Jake_AGENT_MAX_STEPS=4`).
+API keys are **never** stored in files — use `Jake_LLM_API_KEY`. See
 `docs/permissions.md` and `docs/security.md` for the safety model.
 
 ## Development
@@ -105,4 +96,3 @@ PYTHONPATH=core/python .venv/Scripts/python.exe -m pytest core/python/tests  # 5
 `docs/architecture.md` · `docs/technology.md` · `docs/security.md` ·
 `docs/permissions.md` · `docs/roadmap.md` · `docs/phase1.md` · `docs/structure.md` ·
 `docs/environment.md` · `docs/repository-analysis.md` · `docs/dependencies.md`
-"# jake-ai" 

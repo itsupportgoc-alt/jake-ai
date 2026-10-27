@@ -20,7 +20,7 @@ import traceback
 from concurrent.futures import ThreadPoolExecutor
 from typing import Any, Callable, Dict, Optional
 
-# JSON-RPC error codes (mirrors core/rust/crates/jarvis-protocol/src/rpc.rs)
+# JSON-RPC error codes (mirrors core/rust/crates/Jake-protocol/src/rpc.rs)
 PARSE_ERROR = -32700
 INVALID_REQUEST = -32600
 METHOD_NOT_FOUND = -32601
@@ -63,7 +63,7 @@ class RpcServer:
         self._pending_lock = threading.Lock()
         self._next_id = 1
         self._id_lock = threading.Lock()
-        self._executor = ThreadPoolExecutor(max_workers=workers, thread_name_prefix="jarvis-rpc")
+        self._executor = ThreadPoolExecutor(max_workers=workers, thread_name_prefix="Jake-rpc")
         self._running = threading.Event()
         self._running.set()
 

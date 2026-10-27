@@ -1,9 +1,9 @@
 import json
 
-from jarvis_py.brain import Brain
-from jarvis_py.config import BrainConfig
-from jarvis_py.llm.base import LLMProvider, LLMResult, ProviderError, ToolCall
-from jarvis_py.llm.test_provider import TestProvider
+from Jake_py.brain import Brain
+from Jake_py.config import BrainConfig
+from Jake_py.llm.base import LLMProvider, LLMResult, ProviderError, ToolCall
+from Jake_py.llm.test_provider import TestProvider
 
 TOOLS = [
     {"type": "function", "function": {"name": "time.now", "parameters": {"type": "object"}}},
@@ -29,7 +29,7 @@ def base_request(text: str, tools=True, autonomy=3, privacy_mode=False):
         "autonomy": autonomy,
         "steps_remaining": 8,
         "privacy_mode": privacy_mode,
-        "persona": {"name": "JARVIS"},
+        "persona": {"name": "Jake"},
         "context": {},
     }
 
@@ -148,7 +148,7 @@ def test_no_api_key_error_is_actionable():
             return {"ok": False, "provider": self.id, "model": "-", "detail": "no key"}
 
     resp = make_brain(provider=NoKeyProvider()).chat(base_request("hi"))
-    assert "JARVIS_LLM_API_KEY" in resp["content"]
+    assert "Jake_LLM_API_KEY" in resp["content"]
     assert resp["error"].startswith("no_api_key:")
 
 

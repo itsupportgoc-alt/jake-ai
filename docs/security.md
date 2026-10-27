@@ -14,7 +14,7 @@
 
 ```text
 Zone 0  User (voice, keyboard, UI)                  — trusted, authoritative
-Zone 1  Rust core (jarvis)                          — trusted, TCB
+Zone 1  Rust core (Jake)                          — trusted, TCB
 Zone 2  Tool implementations inside the core       — trusted, gated by permissions
 Zone 3  Python brain process                        — semi-trusted: can *request*, cannot *do*
 Zone 4  LLM provider (cloud)                        — untrusted with data: redacted, opt-in

@@ -1,0 +1,18 @@
+[package]
+name = "Jake-ai"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+description = "Jake-NN: from-scratch tokenizer, Transformer, autograd, AdamW trainer and checkpoints"
+
+[lib]
+path = "src/lib.rs"
+
+[[bin]]
+name = "Jake-ai"
+path = "src/main.rs"
+
+[dependencies]
+serde = { workspace = true }
+serde_json = { workspace = true }
+clap = { workspace = true }

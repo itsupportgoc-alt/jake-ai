@@ -3,6 +3,60 @@
 version = 4
 
 [[package]]
+name = "Jake-ai"
+version = "0.1.0"
+dependencies = [
+ "clap",
+ "serde",
+ "serde_json",
+]
+
+[[package]]
+name = "Jake-cli"
+version = "0.1.0"
+dependencies = [
+ "Jake-core",
+ "Jake-protocol",
+ "chrono",
+ "clap",
+ "serde_json",
+ "tempfile",
+ "tokio",
+ "tracing",
+]
+
+[[package]]
+name = "Jake-core"
+version = "0.1.0"
+dependencies = [
+ "Jake-protocol",
+ "chrono",
+ "dirs",
+ "serde",
+ "serde_json",
+ "tempfile",
+ "thiserror 1.0.69",
+ "tokio",
+ "toml",
+ "tracing",
+ "tracing-appender",
+ "tracing-subscriber",
+ "uuid",
+]
+
+[[package]]
+name = "Jake-protocol"
+version = "0.1.0"
+dependencies = [
+ "chrono",
+ "serde",
+ "serde_json",
+ "thiserror 1.0.69",
+ "tracing",
+ "uuid",
+]
+
+[[package]]
 name = "aho-corasick"
 version = "1.1.5"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -349,60 +403,6 @@ name = "itoa"
 version = "1.0.18"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "8f42a60cbdf9a97f5d2305f08a87dc4e09308d1276d28c869c684d7777685682"
-
-[[package]]
-name = "jarvis-ai"
-version = "0.1.0"
-dependencies = [
- "clap",
- "serde",
- "serde_json",
-]
-
-[[package]]
-name = "jarvis-cli"
-version = "0.1.0"
-dependencies = [
- "chrono",
- "clap",
- "jarvis-core",
- "jarvis-protocol",
- "serde_json",
- "tempfile",
- "tokio",
- "tracing",
-]
-
-[[package]]
-name = "jarvis-core"
-version = "0.1.0"
-dependencies = [
- "chrono",
- "dirs",
- "jarvis-protocol",
- "serde",
- "serde_json",
- "tempfile",
- "thiserror 1.0.69",
- "tokio",
- "toml",
- "tracing",
- "tracing-appender",
- "tracing-subscriber",
- "uuid",
-]
-
-[[package]]
-name = "jarvis-protocol"
-version = "0.1.0"
-dependencies = [
- "chrono",
- "serde",
- "serde_json",
- "thiserror 1.0.69",
- "tracing",
- "uuid",
-]
 
 [[package]]
 name = "js-sys"

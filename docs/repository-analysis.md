@@ -1,36 +1,19 @@
-# Repository Analysis
+# Repository analysis
 
-**Date:** 2026-10-24
-**Path:** `C:\Users\USER\Desktop\JARVIS`
-**Git:** branch `main`, 2 commits (`first commit`), working tree empty at audit time.
+**Path:** project root (cwd)
 
-## Findings
+project root (cwd) sits inside it as an untracked path. Committing inside it as a
+separate repository would stage work into the home-directory repository.
 
-| Item | Result |
-|---|---|
-| Existing source files | **None** — the directory was empty at audit time |
-| Existing frameworks / languages | None detected |
-| Existing build system | None |
-| Existing tests | None |
-| Existing config | None |
-| Working components to preserve | None — nothing to replace |
-| PHP / MySQL present | No — and not required, so not introduced |
-| Web application assumed | No — native agent architecture chosen |
+**Decision:** initialise a dedicated repository *inside* the project so the
+project history, lockfile and CI stay self-contained, and the surrounding
+workspace stays clean.
 
-## Git anomaly (important)
+## Key layout decisions
 
-The nearest git repository is **not** this folder. `git rev-parse --show-toplevel` returns
-`C:/Users/USER`, i.e. the user's entire home directory is a single git repository, and
-`C:\Users\USER\Desktop\JARVIS` sits inside it as an untracked path. Committing inside
-`JARVIS` would therefore stage work into the home-directory repository.
+The layout below is a faithful adaptation of the master prompt's proposed
+project layout, with the repository moved into `core/` and the crates renamed
+to the `Jake-*` convention.
 
-**Decision:** initialise a dedicated repository *inside* `JARVIS` so the project history,
-`.gitignore` and future CI are scoped to this project only. This is additive — the
-home-directory repository is left untouched.
-
-## Conclusions
-
-1. This is a greenfield project: no existing code can be reused or must be preserved.
-2. The architecture document is free to choose the structure that fits the requirements.
-3. The master prompt's proposed `jarvis/` layout is adopted with adjustments noted in
-   `docs/architecture.md`.
+3. The master prompt's proposed project layout is adopted with adjustments noted in
+   `docs/structure.md`.

@@ -23,7 +23,7 @@ Selections are justified against a real need; popularity alone is not a reason.
 | `uuid` | task/event/correlation IDs | standard |
 | `dirs` | platform config/data directories | cross-platform paths |
 | `chrono` | timestamps in logs/events | well-maintained |
-| `clap` (derive) | `jarvis` CLI parsing | standard, only on the binary crate |
+| `clap` (derive) | `Jake` CLI parsing | standard, only on the binary crate |
 | `reqwest` (json, rustls) | outbound HTTP where Rust itself must call APIs (device gateway, updates) | rustls avoids OpenSSL on Windows; **not** used for the LLM — that stays in Python |
 | `notify` | file watching for plugins/config hot-reload | only added when plugins land |
 

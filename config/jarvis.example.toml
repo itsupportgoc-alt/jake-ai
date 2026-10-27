@@ -1,6 +1,6 @@
-# JARVIS configuration — copy to `config/jarvis.toml` and edit.
+# Jake configuration — copy to `config/Jake.toml` and edit.
 # Every value can be overridden by an environment variable:
-#   JARVIS_<SECTION>_<KEY>   e.g. JARVIS_LLM_API_KEY, JARVIS_LLM_PROVIDER
+#   Jake_<SECTION>_<KEY>   e.g. Jake_LLM_API_KEY, Jake_LLM_PROVIDER
 
 [llm]
 # Provider id: "openai_compat" | "test"
@@ -8,8 +8,8 @@
 provider   = "openai_compat"
 base_url   = "https://api.openai.com/v1"
 model      = "gpt-4o-mini"
-# API key: NEVER put it here. Set JARVIS_LLM_API_KEY, or use the OS keychain.
-api_key_env = "JARVIS_LLM_API_KEY"
+# API key: NEVER put it here. Set Jake_LLM_API_KEY, or use the OS keychain.
+api_key_env = "Jake_LLM_API_KEY"
 timeout_ms = 60000
 max_tokens = 2048
 temperature = 0.4
@@ -23,10 +23,10 @@ tool_call_budget = 16       # tool executions per turn across all steps
 autonomy         = 3        # 1..5, see docs/permissions.md
 
 [persona]
-name      = "JARVIS"
+name      = "Jake"
 style     = "calm, professional, concise, occasionally witty"
 language  = "en"             # en | fil | tl (Taglish is understood in any value)
-wake_word = "Jarvis"
+wake_word = "Jake"
 
 [privacy]
 privacy_mode       = false   # true => no cloud calls, no remote devices, local only

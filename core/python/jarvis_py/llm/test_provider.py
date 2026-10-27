@@ -161,7 +161,7 @@ def _describe(data: Any, user_text: str) -> str:
     if "hostname" in data:
         return (
             f"{data.get('hostname')} is running {data.get('os')} ({data.get('arch')}), "
-            f"{data.get('cpu_count')} CPU cores; JARVIS v{data.get('jarvis_version')} "
+            f"{data.get('cpu_count')} CPU cores; Jake v{data.get('Jake_version')} "
             f"rooted at {data.get('project_root')}."
         )
     if "processes" in data:

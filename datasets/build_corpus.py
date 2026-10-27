@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Builds the JARVIS character-level training corpus.
+"""Builds the Jake character-level training corpus.
 
 Deterministic expansion of dialog templates into many concrete examples.
 Re-running this script reproduces the corpus byte-for-byte (no RNG).
@@ -55,12 +55,12 @@ dialog_blocks: list[str] = []
 
 
 def add(user: str, reply: str) -> None:
-    dialog_blocks.append(f"User: {user}\nJARVIS: {reply}")
+    dialog_blocks.append(f"User: {user}\nJake: {reply}")
 
 
 # --- greetings ------------------------------------------------------------ #
 for g in ("hello", "hi", "hey there", "good morning", "good evening"):
-    add(g, "Hello! I am JARVIS. What can I do for you?")
+    add(g, "Hello! I am Jake. What can I do for you?")
 
 # --- time ---------------------------------------------------------------- #
 for ts in TIME_STAMPS[::4]:
@@ -140,7 +140,7 @@ add("what is 12 times 7", "Intent reason.basic. Multiplication 12 times 7 gives 
 for u in ("jarvis stop", "stop", "stop everything", "jarvis stop now", "halt current task", "cancel queue"):
     add(u, "Emergency stop. Halting task, canceling queue, releasing control, parking tool actions.")
 add("help", "Intent help. I can tell the time, give system info, open apps, list files, read files, search files, remember notes, keep tasks. Say jarvis stop to stop.")
-add("what can you do", "Intent help. I am JARVIS. Capabilities: time.now, sys.info, app.open, app.close, fs.list, fs.read, fs.search, memory.put, memory.get, task.put, reason.basic.")
+add("what can you do", "Intent help. I am Jake. Capabilities: time.now, sys.info, app.open, app.close, fs.list, fs.read, fs.search, memory.put, memory.get, task.put, reason.basic.")
 
 # --- reasoning traces ------------------------------------------------------ #
 add(
@@ -169,17 +169,17 @@ add(
 
 # --- small talk guarded ------------------------------------------------------ #
 add("tell me a joke", "Intent smalltalk. Why did the file go to therapy. It had too many dependencies.")
-add("who are you", "Intent smalltalk. I am JARVIS, an offline assistant built from scratch with my own tokenizer, neural network and tools. No external AI model is involved.")
+add("who are you", "Intent smalltalk. I am Jake, an offline assistant built from scratch with my own tokenizer, neural network and tools. No external AI model is involved.")
 add("thank you", "You are welcome.")
 add("are you intelligent", "Intent smalltalk. I have defined measurable skills and limits, not intelligence claims.")
 
 # --- wrap ------------------------------------------------------------------ #
 header = (
-    "# JARVIS Training Corpus\n\n"
-    "JARVIS is an offline assistant. It has its own tokenizer, dense f32 matrix math,\n"
+    "# Jake Training Corpus\n\n"
+    "Jake is an offline assistant. It has its own tokenizer, dense f32 matrix math,\n"
     "reverse-mode automatic differentiation, a decoder-only Transformer architecture\n"
     "with multi-head causal self-attention, AdamW optimiser and checkpoint\n"
-    "serialization. JARVIS does not depend on any external AI service, pretrained\n"
+    "serialization. Jake does not depend on any external AI service, pretrained\n"
     "model, cloud API or commercial service. It learns directly from this training\n"
     "data and runs fully offline.\n\n"
     "Intent labels used across this corpus: time.now, sys.info, app.open, app.close,\n"

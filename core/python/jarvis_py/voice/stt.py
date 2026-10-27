@@ -228,7 +228,7 @@ try {{
             return {"ok": True, "woke": False, "detail": "no wake words configured"}
         path_b64 = base64.b64encode(os.path.abspath(path).encode("utf-8")).decode("ascii")
         # Each phrase becomes a Choices entry; multi-word phrases are added as a
-        # single choice so "hey jarvis" is recognized as one unit.
+        # single choice so "hey Jake" is recognized as one unit.
         choice_blocks = []
         for word in words:
             b64 = base64.b64encode(word.encode("utf-8")).decode("ascii")

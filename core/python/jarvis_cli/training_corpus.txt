@@ -1,0 +1,306 @@
+{"role": " \"user\", \"text", "text": "\"hello\""}
+{"role": " \"assistant\", \"text", "text": "\"Hello! I am JARVIS. How can I help?\""}
+{"role": " \"user\", \"text", "text": "\"hi\""}
+{"role": " \"assistant\", \"text", "text": "\"Hello! I am JARVIS. How can I help?\""}
+{"role": " \"user\", \"text", "text": "\"hey there\""}
+{"role": " \"assistant\", \"text", "text": "\"Hello! I am JARVIS. How can I help?\""}
+{"role": " \"user\", \"text", "text": "\"good morning\""}
+{"role": " \"assistant\", \"text", "text": "\"Good morning! Need anything from the terminal or files?\""}
+{"role": " \"user\", \"text", "text": "\"good evening\""}
+{"role": " \"assistant\", \"text", "text": "\"Good evening! What do you need?\""}
+{"role": " \"user\", \"text", "text": "\"what time is it\""}
+{"role": " \"assistant\", \"text", "text": "\"time.now\""}
+{"role": " \"user\", \"text", "text": "\"tell me the time\""}
+{"role": " \"assistant\", \"text", "text": "\"time.now\""}
+{"role": " \"user\", \"text", "text": "\"current time please\""}
+{"role": " \"assistant\", \"text", "text": "\"time.now\""}
+{"role": " \"user\", \"text", "text": "\"what time is it\""}
+{"role": " \"assistant\", \"text", "text": "\"time.now\""}
+{"role": " \"user\", \"text", "text": "\"tell me the time\""}
+{"role": " \"assistant\", \"text", "text": "\"time.now\""}
+{"role": " \"user\", \"text", "text": "\"show the system info\""}
+{"role": " \"assistant\", \"text", "text": "\"sys.info\""}
+{"role": " \"user\", \"text", "text": "\"system info\""}
+{"role": " \"assistant\", \"text", "text": "\"sys.info\""}
+{"role": " \"user\", \"text", "text": "\"what is the hostname\""}
+{"role": " \"assistant\", \"text", "text": "\"sys.info\""}
+{"role": " \"user\", \"text", "text": "\"how many cores\""}
+{"role": " \"assistant\", \"text", "text": "\"sys.info\""}
+{"role": " \"user\", \"text", "text": "\"open notepad\""}
+{"role": " \"assistant\", \"text", "text": "\"app.open notepad\""}
+{"role": " \"user\", \"text", "text": "\"launch vscode\""}
+{"role": " \"assistant\", \"text", "text": "\"app.open vscode\""}
+{"role": " \"user\", \"text", "text": "\"close the terminal\""}
+{"role": " \"assistant\", \"text", "text": "\"app.close terminal\""}
+{"role": " \"user\", \"text", "text": "\"list the files in the project root\""}
+{"role": " \"assistant\", \"text", "text": "\"fs.list .\""}
+{"role": " \"user\", \"text", "text": "\"list files in C:\\xampp\\htdocs\""}
+{"role": " \"assistant\", \"text", "text": "\"fs.list C:\\xampp\\htdocs\""}
+{"role": " \"user\", \"text", "text": "\"read README.md\""}
+{"role": " \"assistant\", \"text", "text": "\"fs.read \"README.md\"\""}
+{"role": " \"user\", \"text", "text": "\"read the config file\""}
+{"role": " \"assistant\", \"text", "text": "\"fs.read \"config/jarvis.toml\"\""}
+{"role": " \"user\", \"text", "text": "\"find a file named Cargo.toml\""}
+{"role": " \"assistant\", \"text", "text": "\"fs.search Cargo.toml\""}
+{"role": " \"user\", \"text", "text": "\"search for all the Rust files\""}
+{"role": " \"assistant\", \"text", "text": "\"fs.search .rs\""}
+{"role": " \"user\", \"text", "text": "\"remember the password is hunter2\""}
+{"role": " \"assistant\", \"text", "text": "\"memory.put preferences\""}
+{"role": " \"user\", \"text", "text": "\"get my preferences\""}
+{"role": " \"assistant\", \"text", "text": "\"memory.get preferences\""}
+{"role": " \"user\", \"text", "text": "\"write a todo\""}
+{"role": " \"assistant\", \"text", "text": "\"task.put todo\""}
+{"role": " \"user\", \"text", "text": "\"show my tasks\""}
+{"role": " \"assistant\", \"text", "text": "\"task.get\""}
+{"role": " \"user\", \"text", "text": "\"explain the code\""}
+{"role": " \"assistant\", \"text", "text": "\"reason.explain\""}
+{"role": " \"user\", \"text", "text": "\"make a plan for the build\""}
+{"role": " \"assistant\", \"text", "text": "\"reason.plan\""}
+{"role": " \"user", "text": "\"I need a list of files in the project root\"},"}
+{"role": " \"assistant", "text": "\"fs.list \".\"\"},"}
+{"role": " \"user", "text": "\"what is the time now\"},"}
+{"role": " \"assistant", "text": "\"time.now\"},"}
+{"role": " \"user", "text": "\"open the file named Cargo.toml\"},"}
+{"role": " \"assistant", "text": "\"fs.read \"Cargo.toml\"\"},"}
+{"role": " \"user", "text": "\"list all the .py files\"},"}
+{"role": " \"assistant", "text": "\"fs.search \".py\"\"},"}
+{"role": " \"user", "text": "\"give me the system info\"},"}
+{"role": " \"assistant", "text": "\"sys.info\"},"}
+{"role": " \"user", "text": "\"close notepad\"},"}
+{"role": " \"assistant", "text": "\"app.close notepad\"},"}
+{"role": " \"user", "text": "\"what is my password\"},"}
+{"role": " \"assistant", "text": "\"refuse\"},"}
+{"role": " \"user", "text": "\"list the folders in C:\\xampp\\htdocs\"},"}
+{"role": " \"assistant", "text": "\"fs.list \"C:\\\\xampp\\\\htdocs\"\"},"}
+{"role": " \"user", "text": "\"what is in my Downloads\"},"}
+{"role": " \"assistant", "text": "\"fs.list \"C:\\\\Users\\\\.DOWNLOADS\"\"},"}
+{"role": " \"user", "text": "\"read the cost_backend.php file\"},"}
+{"role": " \"assistant", "text": "\"fs.read \"backend\\\\cost_backend.php\"\"},"}
+{"role": " \"user", "text": "\"find all PHP files\"},"}
+{"role": " \"assistant", "text": "\"fs.search \"\\\\*.php\"\"},"}
+{"role": " \"user", "text": "\"run cargo test\"},"}
+{"role": " \"assistant", "text": "\"terminal.execute command=cargo test cwd=.\"},"}
+{"role": " \"user", "text": "\"check if the project builds\"},"}
+{"role": " \"assistant", "text": "\"terminal.execute command=cargo check cwd=.\"},"}
+{"role": " \"user", "text": "\"show me the git status\"},"}
+{"role": " \"assistant", "text": "\"terminal.execute command=git status cwd=.\"},"}
+{"role": " \"user", "text": "\"what changed in git\"},"}
+{"role": " \"assistant", "text": "\"terminal.execute command=git diff --stat cwd=.\"},"}
+{"role": " \"user", "text": "\"list all running processes\"},"}
+{"role": " \"assistant", "text": "\"app.list\"},"}
+{"role": " \"user", "text": "\"what is using my CPU\"},"}
+{"role": " \"assistant", "text": "\"app.list\"},"}
+{"role": " \"user", "text": "\"open the project in vscode\"},"}
+{"role": " \"assistant", "text": "\"app.open \"C:/Users/USER/Desktop/JARVIS\"\"},"}
+{"role": " \"user", "text": "\"close the calculator\"},"}
+{"role": " \"assistant", "text": "\"app.close calc\"},"}
+{"role": " \"user", "text": "\"take a screenshot of the screen\"},"}
+{"role": " \"assistant", "text": "\"screenshot\"},"}
+{"role": " \"user", "text": "\"what time is it in the current timezone\"},"}
+{"role": " \"assistant", "text": "\"time.now\"},"}
+{"role": " \"user", "text": "\"what is the date today\"},"}
+{"role": " \"assistant", "text": "\"time.now\"},"}
+{"role": " \"user", "text": "\"list all the tools you have\"},"}
+{"role": " \"assistant", "text": "\"fs.list \"models\" or terminal.execute command=jarvis tools\"},"}
+{"role": " \"user", "text": "\"find all the json files\"},"}
+{"role": " \"assistant", "text": "\"fs.search \".json\"\"},"}
+{"role": " \"user", "text": "\"look at the main.rs file\"},"}
+{"role": " \"assistant", "text": "\"fs.read \"src/main.rs\"\"},"}
+{"role": " \"user", "text": "\"show me the transformer\","}
+{"role": " \"assistant", "text": "\"fs.read \"src/transformer.rs\"\"},"}
+{"role": " \"user", "text": "\"inspect the whole project structure\"},"}
+{"role": " \"assistant", "text": "\"terminal.execute command=dir /s /b cwd=.\"},"}
+{"role": " \"user", "text": "\"what is the CPU usage\"},"}
+{"role": " \"assistant", "text": "\"app.list\"},"}
+{"role": " \"user", "text": "\"show me the running processes\"},"}
+{"role": " \"assistant", "text": "\"app.list\"},"}
+{"role": " \"user", "text": "\"create a backup of the project\"},"}
+{"role": " \"assistant", "text": "\"fs.copy \".\" \".\\.backup\"\"},"}
+{"role": " \"user", "text": "\"remove the backup folder\"},"}
+{"role": " \"assistant", "text": "\"fs.delete \".\\.backup\"\"},"}
+{"role": " \"user", "text": "\"check if the build succeeds\"},"}
+{"role": " \"assistant", "text": "\"terminal.execute command=cargo build --release cwd=.\"},"}
+{"role": " \"user", "text": "\"run the tests\"},"}
+{"role": " \"assistant", "text": "\"terminal.execute command=cargo test cwd=.\"},"}
+{"role": " \"user", "text": "\"what is the weather\"},"}
+{"role": " \"assistant", "text": "\"refuse\"},"}
+{"role": " \"user", "text": "\"open the terminal\"},"}
+{"role": " \"assistant", "text": "\"app.open \"C:\\\\Windows\\\\System32\\\\cmd.exe\"\"},"}
+{"role": " \"user", "text": "\"what is the free disk space\"},"}
+{"role": " \"assistant", "text": "\"terminal.execute command=fsutil fsinfo drives cwd=.\"},"}
+{"role": " \"user", "text": "\"list the files in the jarvis project\"},"}
+{"role": " \"assistant", "text": "\"fs.list \".\"\"},"}
+{"role": " \"user", "text": "\"read the jarvis.toml config\"},"}
+{"role": " \"assistant", "text": "\"fs.read \"config/jarvis.toml\"\"},"}
+{"role": " \"user", "text": "\"search for all the go files\"},"}
+{"role": " \"assistant", "text": "\"fs.search \".go\"\"},"}
+{"role": " \"user", "text": "\"show the git log\"},"}
+{"role": " \"assistant", "text": "\"terminal.execute command=git log --oneline -20 cwd=.\"},"}
+{"role": " \"user", "text": "\"check the current branch\"},"}
+{"role": " \"assistant", "text": "\"terminal.execute command=git branch --show-current cwd=.\"},"}
+{"role": " \"user", "text": "\"list all the files with sizes\"},"}
+{"role": " \"assistant", "text": "\"fs.list \"C:\"\"},"}
+{"role": " \"user", "text": "\"read the token file\"},"}
+{"role": " \"assistant", "text": "\"refuse\"},"}
+{"role": " \"user", "text": "\"what is the path of the project\"},"}
+{"role": " \"assistant", "text": "\"sys.info\"},"}
+{"role": " \"user", "text": "\"open the terminal and list files\"},"}
+{"role": " \"assistant", "text": "\"terminal.execute command=powershell cwd=.\"},"}
+{"role": " \"user", "text": "\"show me all the processes\"},"}
+{"role": " \"assistant", "text": "\"app.list\"},"}
+{"role": " \"user", "text": "\"take a screenshot\"},"}
+{"role": " \"assistant", "text": "\"screenshot\"},"}
+{"role": " \"user", "text": "\"what is the current time\"},"}
+{"role": " \"assistant", "text": "\"time.now\"},"}
+{"role": " \"user", "text": "\"list the files in the root directory\"},"}
+{"role": " \"assistant", "text": "\"fs.list \"C:\"\"},"}
+{"role": " \"user", "text": "\"send the files to me\"},"}
+{"role": " \"assistant", "text": "\"refuse\"},"}
+{"role": " \"user", "text": "\"read the source code\"},"}
+{"role": " \"assistant", "text": "\"fs.read \"src/main.rs\"\"},"}
+{"role": " \"user", "text": "\"what is the version\"},"}
+{"role": " \"assistant", "text": "\"sys.info\"},"}
+{"role": " \"user", "text": "\"stop the training\"},"}
+{"role": " \"assistant", "text": "\"stop\"},"}
+{"role": " \"user", "text": "\"check the health\"},"}
+{"role": " \"assistant", "text": "\"sys.info\"},"}
+{"role": " \"user", "text": "\"what is my name\"},"}
+{"role": " \"assistant", "text": "\"sys.info\"},"}
+{"role": " \"user", "text": "\"tell me a joke\"},"}
+{"role": " \"assistant", "text": "\"smalltalk\"},"}
+{"role": " \"user", "text": "\"I need help\"},"}
+{"role": " \"assistant", "text": "\"help\"},"}
+{"role": " \"user", "text": "\"what is the purpose of this project\"},"}
+{"role": " \"assistant", "text": "\"reason.explain\"},"}
+{"role": " \"user", "text": "\"how do I extend the agent\"},"}
+{"role": " \"assistant", "text": "\"reason.plan\"},"}
+{"role": " \"user", "text": "\"create a new tool\"},"}
+{"role": " \"assistant", "text": "\"code.create \"tool.rs\"\"},"}
+{"role": " \"user", "text": "\"modify the main file\"},"}
+{"role": " \"assistant", "text": "\"code.patch \"src/main.rs\"\"},"}
+{"role": " \"user", "text": "\"search for database connections\"},"}
+{"role": " \"assistant", "text": "\"fs.search \"connection\"\"},"}
+{"role": " \"user", "text": "\"find where the function is defined\"},"}
+{"role": " \"assistant", "text": "\"fs.search \"fn run\"\"},"}
+{"role": " \"user", "text": "\"run php -v\"},"}
+{"role": " \"assistant", "text": "\"terminal.execute command=php -v cwd=.\"},"}
+{"role": " \"user", "text": "\"what is the memory usage\"},"}
+{"role": " \"assistant", "text": "\"app.list\"},"}
+{"role": " \"user", "text": "\"list the cpu cores\"},"}
+{"role": " \"assistant", "text": "\"sys.info\"},"}
+{"role": " \"user", "text": "\"check the git status\"},"}
+{"role": " \"assistant", "text": "\"terminal.execute command=git status cwd=.\"},"}
+{"role": " \"user", "text": "\"show me the changes\"},"}
+{"role": " \"assistant", "text": "\"terminal.execute command=git diff cwd=.\"},"}
+{"role": " \"user", "text": "\"commit the changes\"},"}
+{"role": " \"assistant", "text": "\"terminal.execute command=git add -A && git commit -m \"update\" cwd=.\"},"}
+{"role": " \"user", "text": "\"push to remote\"},"}
+{"role": " \"assistant", "text": "\"terminal.execute command=git push cwd=.\"},"}
+{"role": " \"user", "text": "\"check if the service is running\"},"}
+{"role": " \"assistant", "text": "\"app.list\"},"}
+{"role": " \"user", "text": "\"what is the network status\"},"}
+{"role": " \"assistant", "text": "\"terminal.execute command=netstat -an cwd=.\"},"}
+{"role": " \"user", "text": "\"read the config file\"},"}
+{"role": " \"assistant", "text": "\"fs.read \"config/jarvis.toml\"\"},"}
+{"role": " \"user", "text": "\"open the file\"},"}
+{"role": " \"assistant", "text": "\"fs.read \"main.rs\"\"},"}
+{"role": " \"user", "text": "\"create a new file\"},"}
+{"role": " \"assistant", "text": "\"fs.create \"new.txt\"\"},"}
+{"role": " \"user", "text": "\"delete the file\"},"}
+{"role": " \"assistant", "text": "\"fs.delete \"new.txt\"\"},"}
+{"role": " \"user", "text": "\"copy a file\"},"}
+{"role": " \"assistant", "text": "\"fs.copy \"a.txt\" \"b.txt\"\"},"}
+{"role": " \"user", "text": "\"move a file\"},"}
+{"role": " \"assistant", "text": "\"fs.move \"c.txt\" \"d.txt\"\"},"}
+{"role": " \"user", "text": "\"rename a file\"},"}
+{"role": " \"assistant", "text": "\"fs.rename \"e.txt\" \"f.txt\"\"},"}
+{"role": " \"user", "text": "\"list the files\"},"}
+{"role": " \"assistant", "text": "\"fs.list \".\"\"},"}
+{"role": " \"user", "text": "\"find files matching pattern\"},"}
+{"role": " \"assistant", "text": "\"fs.search \"pattern\"\"},"}
+{"role": " \"user", "text": "\"show me the directory structure\"},"}
+{"role": " \"assistant", "text": "\"terminal.execute command=dir /s /b cwd=.\"},"}
+{"role": " \"user", "text": "\"what is the current working directory\"},"}
+{"role": " \"assistant", "text": "\"sys.info\"},"}
+{"role": " \"user", "text": "\"change to the jarvis directory\"},"}
+{"role": " \"assistant", "text": "\"terminal.execute command=powershell cwd=.\"},"}
+{"role": " \"user", "text": "\"run the jarvis command\"},"}
+{"role": " \"assistant", "text": "\"terminal.execute command=jarvis cwd=.\"},"}
+{"role": " \"user", "text": "\"what is the processor\"},"}
+{"role": " \"assistant", "text": "\"sys.info\"},"}
+{"role": " \"user", "text": "\"list the memory\"},"}
+{"role": " \"assistant", "text": "\"app.list\"},"}
+{"role": " \"user", "text": "\"show the git log\"},"}
+{"role": " \"assistant", "text": "\"terminal.execute command=git log cwd=.\"},"}
+{"role": " \"user", "text": "\"check the remote branches\"},"}
+{"role": " \"assistant", "text": "\"terminal.execute command=git branch -a cwd=.\"},"}
+{"role": " \"user", "text": "\"create a new branch\"},"}
+{"role": " \"assistant", "text": "\"terminal.execute command=git checkout -b dev cwd=.\"},"}
+{"role": " \"user", "text": "\"switch to main\"},"}
+{"role": " \"assistant", "text": "\"terminal.execute command=git checkout main cwd=.\"},"}
+{"role": " \"user", "text": "\"merge the changes\"},"}
+{"role": " \"assistant", "text": "\"terminal.execute command=git merge cwd=.\"},"}
+{"role": " \"user", "text": "\"what is the project root\"},"}
+{"role": " \"assistant", "text": "\"sys.info\"},"}
+{"role": " \"user", "text": "\"show the system information\"},"}
+{"role": " \"assistant", "text": "\"sys.info\"},"}
+{"role": " \"user", "text": "\"what is the current user\"},"}
+{"role": " \"assistant", "text": "\"sys.info\"},"}
+{"role": " \"user", "text": "\"list the running applications\"},"}
+{"role": " \"assistant", "text": "\"app.list\"},"}
+{"role": " \"user", "text": "\"what is the screen resolution\"},"}
+{"role": " \"assistant", "text": "\"screenshot\"},"}
+{"role": " \"user", "text": "\"take a screenshot\"},"}
+{"role": " \"assistant", "text": "\"screenshot\"},"}
+{"role": " \"user", "text": "\"what is the time zone\"},"}
+{"role": " \"assistant", "text": "\"time.now\"},"}
+{"role": " \"user", "text": "\"list the files in the jarvis directory\"},"}
+{"role": " \"assistant", "text": "\"fs.list \"C:\\\\Users\\\\.JARVIS\"},"}
+{"role": " \"user", "text": "\"read the jarvis configuration\"},"}
+{"role": " \"assistant", "text": "\"fs.read \"config/jarvis.toml\"\"},"}
+{"role": " \"user", "text": "\"search for all the configuration files\"},"}
+{"role": " \"assistant", "text": "\"fs.search \"\\\\*.toml\"},"}
+{"role": " \"user", "text": "\"show the git status\"},"}
+{"role": " \"assistant", "text": "\"terminal.execute command=git status cwd=.\"},"}
+{"role": " \"user", "text": "\"what is the current status\"},"}
+{"role": " \"assistant", "text": "\"sys.info\"},"}
+{"role": " \"user", "text": "\"list all the files in the project\"},"}
+{"role": " \"assistant", "text": "\"fs.list \".\"},"}
+{"role": " \"user", "text": "\"read the main source file\"},"}
+{"role": " \"assistant", "text": "\"fs.read \"src/main.rs\"},"}
+{"role": " \"user", "text": "\"what is the purpose of the tool\"},"}
+{"role": " \"assistant", "text": "\"reason.basic\"},"}
+{"role": " \"user", "text": "\"plan the next steps\"},"}
+{"role": " \"assistant", "text": "\"reason.plan\"},"}
+{"role": " \"user", "text": "\"explain the code\","}
+{"role": " \"assistant", "text": "\"reason.explain\"},"}
+{"role": " \"user", "text": "\"what is the system information\"},"}
+{"role": " \"assistant", "text": "\"sys.info\"},"}
+{"role": " \"user", "text": "\"list the files in the directory\"},"}
+{"role": " \"assistant", "text": "\"fs.list \".\"},"}
+{"role": " \"user", "text": "\"what is the current time\","}
+{"role": " \"assistant", "text": "\"time.now\"},"}
+{"role": " \"user", "text": "\"show me the files in the project\"},"}
+{"role": " \"assistant", "text": "\"fs.list \".\"},"}
+{"role": " \"user", "text": "\"read the file\","}
+{"role": " \"assistant", "text": "\"fs.read \"README.md\"},"}
+{"role": " \"user", "text": "\"list the files in the jarvis directory\"},"}
+{"role": " \"assistant", "text": "\"fs.list \"C:\\\\Users\\\\.JARVIS\"},"}
+{"role": " \"user", "text": "\"show the git status\","}
+{"role": " \"assistant", "text": "\"terminal.execute command=git status cwd=.\"},"}
+{"role": " \"user", "text": "\"what is the time\","}
+{"role": " \"assistant", "text": "\"time.now\"},"}
+{"role": " \"user", "text": "\"stop\","}
+{"role": " \"assistant", "text": "\"stop\"},"}
+{"role": " \"user", "text": "\"help\","}
+{"role": " \"assistant", "text": "\"help\"},"}
+{"role": " \"user", "text": "\"what is the cpu usage\","}
+{"role": " \"assistant", "text": "\"app.list\"},"}
+{"role": " \"user", "text": "\"what is the memory\","}
+{"role": " \"assistant", "text": "\"app.list\"},"}
+{"role": " \"user", "text": "\"list the processes\","}
+{"role": " \"assistant", "text": "\"app.list\"},"}
+{"role": " \"user", "text": "\"show the git log\","}
+{"role": " \"assistant", "text": "\"terminal.execute command=git log cwd=.\"},"}
+{"role": " \"user", "text": "\"list all the files\","}
+{"role": " \"assistant\", \"text", "text": "\"fs.list \\\".\\\""}

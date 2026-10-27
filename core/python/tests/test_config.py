@@ -1,15 +1,15 @@
 import json
 
-from jarvis_py.config import BrainConfig
+from Jake_py.config import BrainConfig
 
 
 def test_defaults_without_env(monkeypatch):
-    monkeypatch.delenv("JARVIS_BRAIN_CONFIG", raising=False)
-    monkeypatch.delenv("JARVIS_LLM_API_KEY", raising=False)
+    monkeypatch.delenv("Jake_BRAIN_CONFIG", raising=False)
+    monkeypatch.delenv("Jake_LLM_API_KEY", raising=False)
     cfg = BrainConfig.load()
     assert cfg.llm.provider == "openai_compat"
     assert cfg.agent.max_steps == 8
-    assert cfg.persona.name == "JARVIS"
+    assert cfg.persona.name == "Jake"
     assert cfg.llm.api_key == ""
 
 
@@ -29,7 +29,7 @@ def test_config_from_runtime_slice(monkeypatch):
         "privacy": {"privacy_mode": True, "allow_screenshots": False, "allow_cloud_llm": True},
         "project_root": "C:/proj",
     }
-    monkeypatch.setenv("JARVIS_BRAIN_CONFIG", json.dumps(payload))
+    monkeypatch.setenv("Jake_BRAIN_CONFIG", json.dumps(payload))
     cfg = BrainConfig.load()
     # trailing slash is normalised so url joining cannot double up
     assert cfg.llm.base_url == "http://localhost:11434/v1"
@@ -43,14 +43,14 @@ def test_config_from_runtime_slice(monkeypatch):
 
 
 def test_api_key_falls_back_to_environment(monkeypatch):
-    monkeypatch.delenv("JARVIS_BRAIN_CONFIG", raising=False)
-    monkeypatch.setenv("JARVIS_LLM_API_KEY", "sk-env-key-12345678901234567890")
+    monkeypatch.delenv("Jake_BRAIN_CONFIG", raising=False)
+    monkeypatch.setenv("Jake_LLM_API_KEY", "sk-env-key-12345678901234567890")
     cfg = BrainConfig.load()
     assert cfg.llm.api_key.startswith("sk-env-key")
 
 
 def test_describe_never_leaks_the_key(monkeypatch):
-    monkeypatch.setenv("JARVIS_BRAIN_CONFIG", json.dumps({"llm": {"api_key": "sk-secret-42"}}))
+    monkeypatch.setenv("Jake_BRAIN_CONFIG", json.dumps({"llm": {"api_key": "sk-secret-42"}}))
     cfg = BrainConfig.load()
     described = json.dumps(cfg.describe())
     assert "sk-secret-42" not in described
@@ -58,6 +58,6 @@ def test_describe_never_leaks_the_key(monkeypatch):
 
 
 def test_malformed_env_json_falls_back_to_defaults(monkeypatch):
-    monkeypatch.setenv("JARVIS_BRAIN_CONFIG", "{not json")
+    monkeypatch.setenv("Jake_BRAIN_CONFIG", "{not json")
     cfg = BrainConfig.load()
     assert cfg.llm.model == "gpt-4o-mini"

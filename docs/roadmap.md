@@ -7,8 +7,8 @@ Honesty rule: each deliverable is marked `IMPLEMENTED`, `PARTIALLY IMPLEMENTED` 
 
 ## Phase 1 — Core ✅ COMPLETE (reported 2026-10-24)
 
-- [x] Cargo workspace: `jarvis-protocol`, `jarvis-core`, `jarvis-cli`
-- [x] Config (TOML + `JARVIS_*` env overrides) and structured rotating logs (secret-safe)
+- [x] Cargo workspace: `Jake-protocol`, `Jake-core`, `Jake-cli`
+- [x] Config (TOML + `Jake_*` env overrides) and structured rotating logs (secret-safe)
 - [x] Event bus (tokio broadcast) with correlation IDs
 - [x] Permission gate (levels 0–4, autonomy 1–5, confirmation flow)
 - [x] Tool registry + JSON schemas + validation + path sandbox
@@ -16,7 +16,7 @@ Honesty rule: each deliverable is marked `IMPLEMENTED`, `PARTIALLY IMPLEMENTED` 
       a deterministic test provider, retries, timeouts, redaction
 - [x] JSON-RPC 2.0 over stdio bridge (Rust ↔ Python), supervised with restart
 - [x] Agent loop with budgets, cancellation, verification, honest error reporting
-- [x] Chat REPL (`jarvis chat`) — real end-to-end conversation through the brain
+- [x] Chat REPL (`Jake chat`) — real end-to-end conversation through the brain
 - [x] Tests: **99 Rust (incl. 8 real e2e) + 44 Python, all green**
 
 See `docs/phase1.md` for the verification report.
@@ -26,11 +26,11 @@ See `docs/phase1.md` for the verification report.
 Status 2026-10-24 (session 2):
 
 - [x] `VoiceEngine` (`TtsEngine`) abstraction + Windows `System.Speech`
-      implementation — **verified**: `jarvis speak --wav` renders a real 154 KB
+      implementation — **verified**: `Jake speak --wav` renders a real 154 KB
       RIFF/WAVE file; live playback executed end-to-end (exit 0, 6 s of speech)
 - [x] `SpeechRecognizer` (`SttEngine`) abstraction + Windows dictation engine —
       **partially verified**: engine probes and runs, but this machine reports
-      “No audio device is installed”, which `jarvis listen` relays honestly
+      “No audio device is installed”, which `Jake listen` relays honestly
 - [x] `voice.*` RPC surface (`speak`, `render`, `tts_probe`, `stt_probe`, `dictate`)
       + doctor probes (warn, never fake)
 - [ ] Wake word (configurable, local) + VAD + microphone capture loop
@@ -80,7 +80,7 @@ Gradle wrapper checked into the repo.
 
 ## Phase 8 — Polish
 
-- Windows installer (`JARVIS-Setup.exe`), Android APK, Tauri UI, performance pass,
+- Windows installer (`Jake-Setup.exe`), Android APK, Tauri UI, performance pass,
   security audit, signed updates with rollback, full docs set
 
 ## Environment prerequisites still outstanding
@@ -90,4 +90,4 @@ Gradle wrapper checked into the repo.
 | build/tests (any phase) | MinGW-w64 toolchain (`gcc`, `dlltool`) | ✅ installed (WinLibs via winget) — `source scripts/env.sh` |
 | Phase 5 | Android SDK, platform-tools (`adb`), build-tools, Gradle wrapper | ❌ not installed — deferred by decision |
 | Phase 2 (optional) | `faster-whisper` cp315 wheel or Windows Speech runtime | ⏳ evaluated in Phase 2 |
-| Phase 4 | API key for chosen provider, or a local model server | ⏳ user-provided (`JARVIS_LLM_API_KEY`) |
+| Phase 4 | API key for chosen provider, or a local model server | ⏳ user-provided (`Jake_LLM_API_KEY`) |

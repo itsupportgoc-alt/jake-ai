@@ -1,7 +1,7 @@
 """Brain entry point: the JSON-RPC stdio server the Rust runtime supervises.
 
-Launched as `python .../jarvis_py/main.py`; configuration arrives in the
-`JARVIS_BRAIN_CONFIG` environment variable. stderr is inherited (visible in logs),
+Launched as `python .../Jake_py/main.py`; configuration arrives in the
+`Jake_BRAIN_CONFIG` environment variable. stderr is inherited (visible in logs),
 stdout is reserved for the protocol.
 """
 

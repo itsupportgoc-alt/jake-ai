@@ -41,7 +41,7 @@ class OpenAICompatProvider(LLMProvider):
         if not self._cfg.api_key and not self._local:
             raise ProviderError(
                 "no_api_key",
-                "no API key is configured — set JARVIS_LLM_API_KEY (or llm.api_key_env) "
+                "no API key is configured — set Jake_LLM_API_KEY (or llm.api_key_env) "
                 "or switch llm.provider to \"test\" for offline mode",
             )
 

@@ -1,6 +1,6 @@
 # Phase 2: Context, Intent Recognition and Basic Reasoning
 
-**IMPLEMENTED** — built on the Phase 1 from-scratch core (`jarvis-ai`), with no
+**IMPLEMENTED** — built on the Phase 1 from-scratch core (`Jake-ai`), with no
 external AI service at any point.
 
 ## Stronger checkpoint (user-requested scale-up)
@@ -11,9 +11,9 @@ app open/close, file list/read/search, memory, tasks, refusals (honest limits),
 emergency stop, help, small talk, and reasoning traces in a fixed
 `Steps: 1 … 2 … Done.` format. The corpus doubles as the intent-label source.
 
-Model grown and retrained as `models/jarvis-strong` (`JARVIS-NN-0.2`, step 26):
+Model grown and retrained as `models/Jake-strong` (`Jake-NN-0.2`, step 26):
 
-| | jarvis-small (Phase 1) | jarvis-strong |
+| | Jake-small (Phase 1) | Jake-strong |
 |---|---|---|
 | d_model / layers / heads | 64 / 2 / 4 | 128 / 4 / 4 |
 | seq_len | 32 | 64 |
@@ -42,7 +42,7 @@ shedding the oldest kept line if it would not otherwise fit.
 ### `intent.rs` — likelihood-based intent classifier
 
 Reuses the trained Transformer as a language model. For each of the 17 corpus
-intents it scores the continuation `JARVIS: Intent <label>.` after
+intents it scores the continuation `Jake: Intent <label>.` after
 `User: <utterance>` with incremental forward passes (log-softmax per token,
 mean log-prob ranks candidates). Confidence is explicit: a top1-top2 margin
 below `reason::CLARIFY_MARGIN` (0.15) means "ask, don't guess".
@@ -76,10 +76,10 @@ The Phase 1 sampling loop moved into the library; `Generate` and `Reason
 
 ```bash
 export PATH="/c/msys64/mingw64/bin:$PATH"    # GNU toolchain for linking
-./target/release/jarvis-ai.exe intent  --text "open notepad"
-./target/release/jarvis-ai.exe reason  --text "search for checkpoint"
-./target/release/jarvis-ai.exe reason  --text "stop everything now"   # emergency
-./target/release/jarvis-ai.exe generate --model-dir models/jarvis-strong --prompt "User: what time is it" --temperature 0.4
+./target/release/Jake-ai.exe intent  --text "open notepad"
+./target/release/Jake-ai.exe reason  --text "search for checkpoint"
+./target/release/Jake-ai.exe reason  --text "stop everything now"   # emergency
+./target/release/Jake-ai.exe generate --model-dir models/Jake-strong --prompt "User: what time is it" --temperature 0.4
 ```
 
 ## Known limits (honest reporting)

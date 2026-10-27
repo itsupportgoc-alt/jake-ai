@@ -1,4 +1,4 @@
-"""JARVIS Python brain: AI orchestration layer.
+"""Jake Python brain: AI orchestration layer.
 
 This package must never touch the OS directly: everything privileged is a tool
 request handled by the Rust runtime behind the permission gate.

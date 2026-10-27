@@ -1,4 +1,4 @@
-# JARVIS — Architecture
+# Jake — Architecture
 
 Autonomous personal AI assistant: a native agent system for Windows (extensible to
 Linux/macOS) plus a native Android companion. Not a chatbot wrapper, not a WebView.
@@ -25,7 +25,7 @@ Linux/macOS) plus a native Android companion. Not a chatbot wrapper, not a WebVi
 
 ```text
                  ┌────────────────────────────────────────────┐
-   voice/text ──►│  jarvis (Rust binary)                      │
+   voice/text ──►│  Jake (Rust binary)                      │
    UI            │                                            │
                  │  event bus ──► agent runtime ──► tool router│
                  │       │              │              │      │
@@ -34,7 +34,7 @@ Linux/macOS) plus a native Android companion. Not a chatbot wrapper, not a WebVi
                  │  emergency stop ─────┘                      │
                  │       │  JSON-RPC 2.0 / stdio               │
                  │       ▼                                     │
-                 │  python child process (jarvis brain)        │
+                 │  python child process (Jake brain)        │
                  │    LLMProvider (openai|anthropic|local|…)   │
                  │    planner / memory / NLP                   │
                  └────────────────────────────────────────────┘
@@ -49,13 +49,13 @@ Responsibility split:
 
 | Layer | Owns | Must not own |
 |---|---|---|
-| Rust `jarvis-protocol` | shared JSON-RPC types, tool schemas, permission & risk enums, event types | behaviour |
-| Rust `jarvis-core` | config, structured logging, event bus, permission gate, confirmation flow, tool registry, agent loop, scheduler, Python supervisor, emergency stop | prompt engineering |
-| Rust `jarvis-cli` | terminal/chat front-end (later: Tauri UI) | business logic |
-| Python `jarvis_py.brain` | intent → plan → tool selection → observation → reply loop | direct file/process access |
-| Python `jarvis_py.llm` | provider adapters, streaming, retries, token budget | tool execution |
-| Python `jarvis_py.voice` | VAD, STT, TTS, wake word | — |
-| Python `jarvis_py.memory` | short/long/task/semantic memory CRUD | secrets |
+| Rust `Jake-protocol` | shared JSON-RPC types, tool schemas, permission & risk enums, event types | behaviour |
+| Rust `Jake-core` | config, structured logging, event bus, permission gate, confirmation flow, tool registry, agent loop, scheduler, Python supervisor, emergency stop | prompt engineering |
+| Rust `Jake-cli` | terminal/chat front-end (later: Tauri UI) | business logic |
+| Python `Jake_py.brain` | intent → plan → tool selection → observation → reply loop | direct file/process access |
+| Python `Jake_py.llm` | provider adapters, streaming, retries, token budget | tool execution |
+| Python `Jake_py.voice` | VAD, STT, TTS, wake word | — |
+| Python `Jake_py.memory` | short/long/task/semantic memory CRUD | secrets |
 
 ## 3. Message contract (JSON-RPC 2.0 over stdio)
 
@@ -101,7 +101,7 @@ LOOP or FINISH → respond (text/TTS)
 
 Hard limits, all configurable: `max_steps`, `step_timeout_ms`, `total_timeout_ms`,
 `max_retries`, `tool_call_budget`, cancellation token checked between every step.
-"Jarvis, stop" / the UI stop button / SIGINT trip the emergency stop, which cancels the
+"Jake, stop" / the UI stop button / SIGINT trip the emergency stop, which cancels the
 task token, clears the queue, stops speech and releases input grabs.
 
 ## 5. Memory

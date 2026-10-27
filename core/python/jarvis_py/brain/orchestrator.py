@@ -1,4 +1,4 @@
-"""The JARVIS Brain: one conversational turn, observe → propose → (runtime executes).
+"""The Jake Brain: one conversational turn, observe → propose → (runtime executes).
 
 `brain.chat` is a *pure reasoning step*: it receives messages + available tools +
 budget, and returns either a reply or tool proposals. It never executes anything —
@@ -97,8 +97,18 @@ class Brain:
 
     def health(self) -> Dict[str, Any]:
         info = self.provider.health()
+        # LocalJakeProvider returns a plain LLMResult, not a dict with .get().
+        # Normalize it so the runtime can still read {status, provider, model,
+        # detail} from the health probe, regardless of which backend serves it.
+        if hasattr(info, "content"):
+            info = {
+                "status": info.status,
+                "provider": info.provider,
+                "model": info.model,
+                "detail": info.content,
+            }
         return {
-            "status": "ok" if info.get("ok") else "degraded",
+            "status": "ok" if info.get("status") == "ok" else "degraded",
             "provider": info.get("provider", "?"),
             "model": info.get("model", "?"),
             "detail": redact(str(info.get("detail", ""))),
@@ -133,7 +143,7 @@ class Brain:
         if exc.code == "no_api_key":
             return (
                 "I have no AI provider configured, so I cannot reason right now. "
-                "Set JARVIS_LLM_API_KEY (or llm.api_key_env), or set llm.provider = "
+                "Set Jake_LLM_API_KEY (or llm.api_key_env), or set llm.provider = "
                 "\"test\" to use offline tools-only mode."
             )
         if exc.code == "auth":

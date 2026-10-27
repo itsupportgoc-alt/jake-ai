@@ -45,6 +45,9 @@ class LLMResult:
     provider: str = ""
     usage: Dict[str, Any] = field(default_factory=dict)
     finish_reason: str = ""
+    status: str = ""
+    degraded: bool = False
+    detailed: Optional[str] = None
 
 
 class LLMProvider(ABC):
@@ -67,7 +70,7 @@ class LLMProvider(ABC):
 
     @abstractmethod
     def health(self) -> Dict[str, Any]:
-        """Cheap liveness probe for `jarvis doctor`: {ok, detail, model, provider}."""
+        "Cheap liveness probe for `Jake doctor`: {ok, detail, model, provider}."
 
     def close(self) -> None:  # pragma: no cover - default no-op
         return None
