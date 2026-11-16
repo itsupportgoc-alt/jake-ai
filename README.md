@@ -1,3 +1,17 @@
+## JAKE AI — desktop cybersecurity agent
+
+**JAKE AI** is the Electron app in [`desktop/jake-ai`](desktop/jake-ai/README.md), separate from the offline assistant documented below. It pairs a free local AI agent (Ollama/Qwen by default, or any OpenAI-compatible provider) with authorized reconnaissance, safe OWASP checks, account/RBAC/API/PHP/MySQL audits, reports and an audit log.
+
+[Download for Windows](https://github.com/itsupportgoc-alt/jake-ai/releases/download/v1.1.0/JAKE-AI-Setup-1.1.0.exe) · [Full documentation](desktop/jake-ai/README.md) · [Releases](https://github.com/itsupportgoc-alt/jake-ai/releases)
+
+![JAKE AI Assistant](desktop/jake-ai/docs/screenshots/ai-assistant.png)
+
+**Using the AI:** install and open the app → **Settings → AI provider** to choose Ollama or another provider and run **Test connection** → register the authorized site in **Target Management** → open **AI Assistant** and ask it to run reconnaissance and the safe vulnerability scan → review the findings and generate a report. The assistant can only call JAKE's fixed tools; active tests require approval, scope is enforced, and destructive actions are unavailable. With Ollama, prompts stay on the PC.
+
+> The repository is private, so the download link requires GitHub access. The build is unsigned; Windows SmartScreen may warn.
+
+---
+
 # Jake
 
 An autonomous personal AI assistant for Windows (extensible to Linux/macOS) with a
