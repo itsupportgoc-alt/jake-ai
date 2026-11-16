@@ -1,0 +1,8 @@
+node_modules/
+dist/
+dist-electron/
+release/
+*.log
+verify-ui.png
+*.jake-backup-*
+.jake-e2e/

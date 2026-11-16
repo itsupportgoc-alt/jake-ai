@@ -1,0 +1,113 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  @apply bg-base text-slate-200 antialiased;
+  font-size: 13.5px;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-thumb {
+  background: #263442;
+  border-radius: 6px;
+  border: 2px solid #0b0f14;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+@layer components {
+  .card {
+    @apply rounded-lg border border-edge bg-panel;
+  }
+  .card-pad {
+    @apply rounded-lg border border-edge bg-panel p-4;
+  }
+  .btn {
+    @apply inline-flex items-center justify-center gap-1.5 rounded-md border border-edge bg-panel2 px-3 py-1.5 text-[13px] font-medium text-slate-200 transition-colors hover:border-slate-500 hover:bg-slate-800 disabled:cursor-not-allowed disabled:opacity-40;
+  }
+  .btn-primary {
+    @apply border-cyan-700 bg-cyan-700/20 text-cyan-200 hover:border-cyan-500 hover:bg-cyan-700/30;
+  }
+  .btn-danger {
+    @apply border-rose-800 bg-rose-900/20 text-rose-300 hover:border-rose-500 hover:bg-rose-900/40;
+  }
+  .btn-sm {
+    @apply px-2 py-1 text-xs;
+  }
+  .input {
+    @apply w-full rounded-md border border-edge bg-[#0d141c] px-2.5 py-1.5 text-[13px] text-slate-200 outline-none placeholder:text-slate-600 focus:border-cyan-700 focus:ring-1 focus:ring-cyan-900;
+  }
+  .label {
+    @apply mb-1 block text-[11px] font-semibold uppercase tracking-wider text-muted;
+  }
+  .table {
+    @apply w-full border-collapse text-left text-[13px];
+  }
+  .table th {
+    @apply border-b border-edge px-3 py-2 text-[11px] font-semibold uppercase tracking-wider text-muted;
+  }
+  .table td {
+    @apply border-b border-edge/60 px-3 py-2 align-top;
+  }
+  .mono {
+    @apply font-mono text-[12px];
+  }
+  .page-title {
+    @apply text-xl font-semibold text-slate-100;
+  }
+  .muted {
+    @apply text-muted;
+  }
+  .chip {
+    @apply inline-flex items-center gap-1 rounded border border-edge bg-panel2 px-1.5 py-0.5 text-[11px] font-medium;
+  }
+}
+
+pre.code {
+  @apply overflow-auto rounded-md border border-edge bg-[#080c11] p-3 font-mono text-[11.5px] leading-relaxed text-slate-300;
+}
+
+.md h1,
+.md h2,
+.md h3 {
+  @apply mb-1 mt-3 font-semibold text-slate-100;
+}
+.md p {
+  @apply my-1.5 leading-relaxed;
+}
+.md ul {
+  @apply my-1.5 list-disc pl-5;
+}
+.md ol {
+  @apply my-1.5 list-decimal pl-5;
+}
+.md code {
+  @apply rounded bg-slate-800/80 px-1 py-0.5 font-mono text-[12px] text-cyan-200;
+}
+.md pre {
+  @apply my-2 overflow-auto rounded-md border border-edge bg-[#080c11] p-3;
+}
+.md pre code {
+  @apply bg-transparent p-0 text-slate-300;
+}
+.md a {
+  @apply text-cyan-400 underline;
+}
+.md blockquote {
+  @apply my-2 border-l-2 border-cyan-800 pl-3 text-slate-400;
+}
