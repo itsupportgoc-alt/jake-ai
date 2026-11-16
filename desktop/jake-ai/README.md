@@ -6,6 +6,14 @@ JAKE AI is an Electron desktop application for **authorized** security assessmen
 
 > JAKE AI is for systems you own or have explicit written permission to test. The application enforces a registered target scope, rate limits and approval checkpoints. It is not an exploitation framework and contains no destructive features.
 
+## Download
+
+[**Download JAKE AI 1.1.0 for Windows**](https://github.com/itsupportgoc-alt/jake-ai/releases/download/v1.1.0/JAKE-AI-Setup-1.1.0.exe) — NSIS installer, 93 MB.
+
+Run the installer, then configure an AI provider (Ollama is the default and needs no key).
+The build is unsigned, so Windows SmartScreen may show a warning. While this repository is
+private, the download link requires a GitHub account with access.
+
 ## What is actually implemented
 
 | Area | Status | Notes |
