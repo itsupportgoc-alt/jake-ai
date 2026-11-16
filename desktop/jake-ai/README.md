@@ -14,6 +14,29 @@ Run the installer, then configure an AI provider (Ollama is the default and need
 The build is unsigned, so Windows SmartScreen may show a warning. While this repository is
 private, the download link requires a GitHub account with access.
 
+## UI
+
+The app uses a fixed 16-screen navigation rail. The **AI Assistant** is the primary workspace; **Settings** controls the model and provider.
+
+### AI Assistant
+
+![JAKE AI Assistant](docs/screenshots/ai-assistant.png)
+
+- Conversation list with new/delete controls.
+- Active provider and model badge, so the operator always knows where prompts go.
+- Streaming answers, inline tool-call output and a Stop button.
+- Suggested tasks and an always-visible Emergency Stop.
+- Approval modals for active testing; every action is written to the audit log.
+
+### AI provider settings
+
+![JAKE AI provider settings](docs/screenshots/ai-provider-settings.png)
+
+- Local Ollama/LM Studio by default, or Qwen, OpenRouter, Groq, OpenAI or a custom OpenAI-compatible endpoint.
+- Model, base URL, temperature and token limit.
+- **Detect models** lists what is installed; **Test connection** performs a live probe and reports latency.
+- Local-vs-cloud privacy notice and per-provider encrypted key storage.
+
 ## What is actually implemented
 
 | Area | Status | Notes |
@@ -111,6 +134,34 @@ Choose **OpenRouter (free models)** and use a model whose id ends in `:free` (th
 ### Keys and cloud privacy
 
 Cloud provider keys are stored per provider with Electron `safeStorage` (Windows DPAPI) and only read in the main process. They are never sent to the React renderer, written to logs, or included in reports. When you select a cloud provider, chat messages, system context (target names/IDs, connection names, finding counts) and redacted tool summaries are sent to that provider — **do not send confidential production data without appropriate authorization**. Password, token, cookie and hash values are redacted before transmission. Local providers keep all of this on the machine.
+
+## Using the AI
+
+The assistant is an agent, not a chat wrapper. It can only act through JAKE's registered tools, and every call passes through scope checks, approvals, rate limits and audit logging.
+
+### 1. Register the target first
+
+Open **Target Management** and add the site or API you are authorized to test: URL, authorization basis, optional extra scope hosts, rate limit, and private-network permission for local/staging systems. The AI cannot scan a host that is not registered and in scope.
+
+### 2. Ask for the work
+
+Open **AI Assistant**, describe the authorized goal, and include the target name or ID when more than one exists. Examples:
+
+- “Run reconnaissance and the safe vulnerability scan on my authorized site `Acme Portal`, then summarize the findings.”
+- “Audit the accounts exposed by the admin API connection `Acme Admin API`.”
+- “Check whether a Viewer account can reach admin routes on `Acme Admin API`.”
+- “Review the PHP files in `C:\sites\acme` for SQL injection and weak password hashing.”
+- “Generate an HTML report for assessment `<id>`.”
+
+### 3. Review what it does
+
+The agent can call `list_targets`, `start_recon`, `start_vulnerability_scan`, `audit_accounts`, `audit_rbac`, `scan_api`, `audit_php`, `audit_mysql`, `list_findings`, `run_external_tool`, `generate_report` and the authorized-login tool. Active tests ask for approval unless the configured auto-approval level allows them. Tool output appears inline; **Stop** cancels the current reply and **Emergency Stop** cancels every operation.
+
+### 4. Read the evidence
+
+Findings, reports and audit logs are stored locally. The AI summarizes tool results but cannot create findings, CVEs or evidence; the authoritative record is **Findings** / **Reports**. Absence of findings is not proof that a system is secure.
+
+The AI will not scan unregistered hosts, run shell commands or generated code, brute force, exploit, use denial-of-service, modify production accounts, or receive passwords, hashes, tokens or cookies. Level-5 destructive actions are deliberately unavailable.
 
 ## Authorization workflow
 
